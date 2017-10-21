@@ -112,7 +112,7 @@ func printMultTable(num int) {
 }
 
 func primeTime() {
-	for i := 2; i < 100; i++ {
+	for i := 2; i < 1000; i++ {
 		if isPrime(i) {
 			fmt.Println(i)
 		}
@@ -120,15 +120,16 @@ func primeTime() {
 }
 
 func isPrime(num int) bool {
-	isaPrime := true
-	if num < 2 {
-		isaPrime = false
-		return isaPrime
-	}
-	for i := 2; i < num; i++ {
-		if num%i == 0 {
-			isaPrime = false
+	result := true
+	if num > 2 {
+		for i := 2; i < num; i++ {
+			if num%i == 0 {
+				result = false
+			}
 		}
+	} else {
+		result = false
 	}
-	return isaPrime
+
+	return result
 }
